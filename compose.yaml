@@ -1,0 +1,12 @@
+services:
+  gopher:
+    image: golang:1.19
+    volumes:
+      - ./src:/go/src
+    working_dir: /go/src
+    command: go run ./cmd/upload -file ./testdata/new_users.csv -url http://host.docker.internal:8080
+  upload:
+    image: golang:1.19
+    volumes:
+      - ./src:/go/src
+    working_dir: /go/src
